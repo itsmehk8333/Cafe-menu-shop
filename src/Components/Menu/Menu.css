@@ -1,0 +1,57 @@
+
+/* General Page Styling */
+.menu-container {
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    background: #f8f1e4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .menu-header {
+    font-size: 2rem;
+    color: #8B4513;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .category {
+    background: #fff;
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .category h2 {
+    color: #D2691E;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    font-size: 1.2rem;
+    padding: 5px 0;
+    color: #5A2D0C;
+  }
+  @media (min-width: 600px) {
+    .filterContainer {
+      justify-content: flex-end; /* Align right on larger screens */
+      gap: 10px; /* Slightly larger gap */
+      padding: 0; /* No padding on larger screens */
+    }
+  
+    .filterButton {
+      padding: 6px 12px; /* Larger padding on desktop */
+      font-size: 12px; /* Fixed size for larger screens */
+      min-width: 100px; /* Slightly wider for desktop touch targets */
+    }
+  }
+  
