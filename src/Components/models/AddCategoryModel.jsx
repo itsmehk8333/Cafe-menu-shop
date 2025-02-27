@@ -35,7 +35,7 @@ const AddCategoryModel = ({ openCategoryModel, setOpenCategoryModel }) => {
 
   const addCategory = () => {
     axios
-      .post("http://localhost:4000/api/categories", {
+      .post("https://cafe-show-backend.onrender.com/api/categories", {
         name: categoryName,
       })
       .then(async (response) => {

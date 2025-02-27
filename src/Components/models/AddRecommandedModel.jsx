@@ -35,7 +35,7 @@ export default function AddRecommendedModelComponenet({ openRecommendedModel, se
     useEffect(() => {
         async function fetchItems() {
             try {
-                const response = await axios.get('http://localhost:4000/api/categories');
+                const response = await axios.get('https://cafe-show-backend.onrender.com/api/categories');
                 // Flatten all items from categories and subcategories
                 const allItems = response.data.reduce((acc, category) => {
                     acc.push(...category.items);
@@ -61,7 +61,7 @@ export default function AddRecommendedModelComponenet({ openRecommendedModel, se
             return;
         }
         try {
-            await axios.post('http://localhost:4000/api/recommended', { items: selectedItem, isActive: true });
+            await axios.post('https://cafe-show-backend.onrender.com/api/recommended', { items: selectedItem, isActive: true });
             console.log(`Item ${selectedItem} added to recommended list`);
             handleClose(); // Close modal on success
         } catch (error) {

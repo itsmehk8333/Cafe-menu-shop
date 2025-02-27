@@ -446,7 +446,7 @@ const MenuPage = () => {
   useEffect(() => {
     async function fetchRecommended() {
       try {
-        const response = await axios.get("http://localhost:4000/api/recommended");
+        const response = await axios.get("https://cafe-show-backend.onrender.com/api/recommended");
         const filteredRecommended = applyFilters(response?.data?.data[0]?.items || []);
         setRecommendedList(filteredRecommended);
       } catch (error) {
@@ -459,7 +459,7 @@ const MenuPage = () => {
   useEffect(() => {
     async function fetchSpecialOffers() {
       try {
-        const response = await axios.get("http://localhost:4000/api/specailoffer/get-item");
+        const response = await axios.get("https://cafe-show-backend.onrender.com/api/specailoffer/get-item");
         setSpecialOfferList(response?.data.specialOffers);
       } catch (error) {
         console.log("Error fetching special offers:", error.message);
@@ -471,7 +471,7 @@ const MenuPage = () => {
   useEffect(() => {
     async function fetchCombos() {
       try {
-        const response = await axios.get("http://localhost:4000/api/combo");
+        const response = await axios.get("https://cafe-show-backend.onrender.com/api/combo");
         setComboList(response.data);
       } catch (error) {
         console.log("Error fetching combos:", error.message);
@@ -490,7 +490,7 @@ const MenuPage = () => {
         else if (filters.veegan) grub = "Veegan";
         else grub = "";
 
-        const response = await axios.get("http://localhost:4000/api/categories/get-by-grub", {
+        const response = await axios.get("https://cafe-show-backend.onrender.com/api/categories/get-by-grub", {
           params: { grub },
         });
         setMenuData(response.data);
@@ -564,7 +564,7 @@ const MenuPage = () => {
 
   async function GetItemsSortedOrder(sortOrder) {
     console.log(602);
-    const data = await axios.get(`http://localhost:4000/api/categories/sorted?sort=${sortOrder}`);
+    const data = await axios.get(`https://cafe-show-backend.onrender.com/api/categories/sorted?sort=${sortOrder}`);
     console.log(data.data);
     if (data.data) {
       setMenuData(data.data);

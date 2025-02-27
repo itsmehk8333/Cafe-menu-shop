@@ -27,7 +27,7 @@ const MenuItem = React.memo(({ item, categoryIndex, subCategoryIndex, itemIndex,
     const handleSave = () => {
         handleEdit(categoryIndex, subCategoryIndex, itemIndex, editedName, editedPrice, editedAvailability);
 
-        axios.patch(`http://localhost:4000/api/items/${item._id}`, {
+        axios.patch(`https://cafe-show-backend.onrender.com/api/items/${item._id}`, {
             name: editedName,
             price: parseInt(editedPrice),
             isAvailable: editedAvailability,
@@ -90,7 +90,7 @@ const SpecialOfferItem = React.memo(({ item }) => {
 
     const handleSave = async () => {
         try {
-            const response = await axios.put(`http://localhost:4000/api/specailoffer/${item._id}`, {
+            const response = await axios.put(`https://cafe-show-backend.onrender.com/api/specailoffer/${item._id}`, {
                 item: item.item._id,
                 SpecialOfferPrice: parseInt(editedPrice),
                 isActive: editedAvailability
@@ -108,7 +108,7 @@ const SpecialOfferItem = React.memo(({ item }) => {
 
     const deleteSpecialItem = async () => {
         try {
-            const response = await axios.delete(`http://localhost:4000/api/specailoffer/${item._id}`);
+            const response = await axios.delete(`https://cafe-show-backend.onrender.com/api/specailoffer/${item._id}`);
             if (response.status === 200) {
                 const menu = await getMenu();
                 dispatch(menuAction(menu));
@@ -122,7 +122,7 @@ const SpecialOfferItem = React.memo(({ item }) => {
         const newAvailability = event.target.checked;
         setEditedAvailability(newAvailability);
         try {
-            await axios.put(`http://localhost:4000/api/specailoffer/${item._id}`, {
+            await axios.put(`https://cafe-show-backend.onrender.com/api/specailoffer/${item._id}`, {
                 isActive: newAvailability
             });
             const menu = await getMenu();
@@ -254,7 +254,7 @@ const RecommendedItem = React.memo(({ item, objId }) => {
 
     // const handleSave = async () => {
     //     try {
-    //         const response = await axios.put(`http://localhost:4000/api/items/${item._id}`, {
+    //         const response = await axios.put(`https://cafe-show-backend.onrender.com/api/items/${item._id}`, {
     //             price: parseInt(editedPrice),
     //             isAvailable: editedAvailability
     //         });
@@ -272,7 +272,7 @@ const RecommendedItem = React.memo(({ item, objId }) => {
     const deleteRecommendedItem = async () => {
 
         try {
-            const response = await axios.delete(`http://localhost:4000/api/recommended/${objId}/items/${item._id}`);
+            const response = await axios.delete(`https://cafe-show-backend.onrender.com/api/recommended/${objId}/items/${item._id}`);
             if (response.status === 200) {
                 const menu = await getMenu();
                 dispatch(menuAction(menu));
@@ -287,7 +287,7 @@ const RecommendedItem = React.memo(({ item, objId }) => {
     //     const newAvailability = event.target.checked;
     //     setEditedAvailability(newAvailability);
     //     try {
-    //         await axios.put(`http://localhost:4000/api/items/items/${item._id}`, {
+    //         await axios.put(`https://cafe-show-backend.onrender.com/api/items/items/${item._id}`, {
     //             isAvailable: newAvailability
     //         });
     //         const menu = await getMenu();
@@ -403,7 +403,7 @@ const ComboItem = React.memo(({ combo }) => {
 
     const handleSave = async () => {
         try {
-            const response = await axios.put(`http://localhost:4000/api/combos/${combo._id}`, {
+            const response = await axios.put(`https://cafe-show-backend.onrender.com/api/combos/${combo._id}`, {
                 comboPrice: parseInt(editedPrice),
                 isActive: editedAvailability
             });
@@ -420,7 +420,7 @@ const ComboItem = React.memo(({ combo }) => {
 
     const deleteComboItem = async () => {
         try {
-            const response = await axios.delete(`http://localhost:4000/api/combos/${combo._id}`);
+            const response = await axios.delete(`https://cafe-show-backend.onrender.com/api/combos/${combo._id}`);
             if (response.status === 200) {
                 const menu = await getMenu();
                 dispatch(menuAction(menu));
@@ -434,7 +434,7 @@ const ComboItem = React.memo(({ combo }) => {
         const newAvailability = event.target.checked;
         setEditedAvailability(newAvailability);
         try {
-            await axios.put(`http://localhost:4000/api/combos/${combo._id}`, {
+            await axios.put(`https://cafe-show-backend.onrender.com/api/combos/${combo._id}`, {
                 isActive: newAvailability
             });
             const menu = await getMenu();
@@ -552,10 +552,10 @@ function AdminPage() {
         async function fetchData() {
             try {
                 const [categoriesResponse, specialOffersResponse, combosResponse, recommendedResponse] = await Promise.allSettled([
-                    axios.get("http://localhost:4000/api/categories"),
-                    // axios.get("http://localhost:4000/api/specailoffer/get-item"),
-                    axios.get("http://localhost:4000/api/combo"),
-                    axios.get("http://localhost:4000/api/recommended")
+                    axios.get("https://cafe-show-backend.onrender.com/api/categories"),
+                    // axios.get("https://cafe-show-backend.onrender.com/api/specailoffer/get-item"),
+                    axios.get("https://cafe-show-backend.onrender.com/api/combo"),
+                    axios.get("https://cafe-show-backend.onrender.com/api/recommended")
                 ]);
                 // console.log(categoriesResponse.value.data, "categories Response")
                 dispatch(menuAction(categoriesResponse.value?.data));
@@ -594,7 +594,7 @@ function AdminPage() {
 
     const handleDelete = useCallback(async (categoryIndex, subCategoryIndex, itemIndex, item) => {
         try {
-            await axios.delete(`http://localhost:4000/api/items/${item._id}`);
+            await axios.delete(`https://cafe-show-backend.onrender.com/api/items/${item._id}`);
             const menu = await getMenu();
             dispatch(menuAction(menu));
         } catch (error) {
@@ -604,7 +604,7 @@ function AdminPage() {
 
     const handleAvailability = useCallback(async (categoryIndex, subCategoryIndex, itemIndex, isAvailable, item) => {
         try {
-            await axios.patch(`http://localhost:4000/api/items/${item._id}`, {
+            await axios.patch(`https://cafe-show-backend.onrender.com/api/items/${item._id}`, {
                 isAvailable: isAvailable
             });
             const menu = await getMenu();

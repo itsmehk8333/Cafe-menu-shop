@@ -36,7 +36,7 @@ export default function AddSpecialOfferModel({ openSpecialOfferModel, setSpecial
     useEffect(() => {
         async function fetchItems() {
             try {
-                // const response = await axios.get('http://localhost:4000/api/categories');
+                // const response = await axios.get('https://cafe-show-backend.onrender.com/api/categories');
                 // // Flatten all items from categories and subcategories
                 // const allItems = response.data.reduce((acc, category) => {
                 //     acc.push(...category.items);
@@ -45,7 +45,7 @@ export default function AddSpecialOfferModel({ openSpecialOfferModel, setSpecial
                 // }, []);
                 // setItems(allItems.filter((item) => item.isAvailable)); // Only available items
 
-                const response = await axios.get("http://localhost:4000/api/items");
+                const response = await axios.get("https://cafe-show-backend.onrender.com/api/items");
                 if (response) {
                     setItems(response.data?.data);
                 }
@@ -75,7 +75,7 @@ export default function AddSpecialOfferModel({ openSpecialOfferModel, setSpecial
         }
 
         try {
-            await axios.post('http://localhost:4000/api/specailoffer/add-item', {
+            await axios.post('https://cafe-show-backend.onrender.com/api/specailoffer/add-item', {
                 item: selectedItem,
                 SpecialOfferPrice: price
             });

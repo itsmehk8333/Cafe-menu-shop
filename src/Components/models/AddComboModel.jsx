@@ -42,7 +42,7 @@ export default function AddComboModel({ openComboModel, setOpenComboModel }) {
     useEffect(() => {
         async function fetchItems() {
             try {
-                const response = await axios.get("http://localhost:4000/api/items");
+                const response = await axios.get("https://cafe-show-backend.onrender.com/api/items");
                 if (response.data?.data) {
                     setItems(response.data.data.filter(item => item.isAvailable)); // Only available items
                 }
@@ -77,7 +77,7 @@ export default function AddComboModel({ openComboModel, setOpenComboModel }) {
         }
 
         try {
-            const response = await axios.post('http://localhost:4000/api/combo', {
+            const response = await axios.post('https://cafe-show-backend.onrender.com/api/combo', {
                 items: selectedItems,// Format as array of objects
                 comboPrice: price
             });

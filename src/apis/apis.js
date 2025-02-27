@@ -4,7 +4,7 @@ import { menuAction } from "../Redux/Actions/menu.action";
 
 
 export async function getMenu() {
-    const data = await axios.get("http://localhost:4000/api/categories");
+    const data = await axios.get("https://cafe-show-backend.onrender.com/api/categories");
     return data.data
 }
 

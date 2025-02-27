@@ -36,7 +36,7 @@ export default function AddSubCategoryModel({ openSubCategoryModel, setOpenSubCa
     React.useEffect(() => {
         setLoadingBackDrop(true)
         try {
-            axios.get("http://localhost:4000/api/categories").then(data => {
+            axios.get("https://cafe-show-backend.onrender.com/api/categories").then(data => {
                 if (data) {
                     setCategories(data.data);
                 }
@@ -52,7 +52,7 @@ export default function AddSubCategoryModel({ openSubCategoryModel, setOpenSubCa
     function addSubCategory() {
         setLoadingBackDrop(true)
         try {
-            axios.post(`http://localhost:4000/api/subcategories`, {
+            axios.post(`https://cafe-show-backend.onrender.com/api/subcategories`, {
                 name: subCategoryName,
                 categoryId: categoryValue
             }).then(async (data) => {

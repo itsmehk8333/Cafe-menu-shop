@@ -39,7 +39,7 @@ function AddItemModel({ openItemModel, setOpenItemModel }) {
     // console.log(showSnackbar , "snackbar")
     //  console.log(loading , setLoading , "add model")
     React.useEffect(() => {
-        axios.get("http://localhost:4000/api/categories").then(data => {
+        axios.get("https://cafe-show-backend.onrender.com/api/categories").then(data => {
             if (data) {
                 setCategotyValues(data.data);
                 setOpenItemModel(false)
@@ -50,7 +50,7 @@ function AddItemModel({ openItemModel, setOpenItemModel }) {
     const getSubCategories = (e) => {
         const value = e.target.value;
         setSelectedCategoryValue(value);
-        axios.get(`http://localhost:4000/api/subcategories/${value}`).then(data => {
+        axios.get(`https://cafe-show-backend.onrender.com/api/subcategories/${value}`).then(data => {
             // console.log(data.data.data, "dataaa")
             if (data.data) {
                 setSubCategories(data.data.data)
@@ -62,7 +62,7 @@ function AddItemModel({ openItemModel, setOpenItemModel }) {
     const addItemFunction = () => {
         try {
             setLoadingBackDrop(true)
-            axios.post('http://localhost:4000/api/items', {
+            axios.post('https://cafe-show-backend.onrender.com/api/items', {
                 name: itemName,
                 price: itemPrice,
                 subCategoryId: selectedSubCategory,
