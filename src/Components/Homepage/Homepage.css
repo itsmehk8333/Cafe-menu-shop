@@ -1,199 +1,98 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #FAE5D3, #F5D7B5);
-  background-size: cover;
-  background-attachment: fixed;
-  color: #5A2D0C;
-  padding: 20px;
-  width: 100%;
-  margin: 0 auto;
-  box-sizing: border-box;
-  position: relative;
-  overflow: hidden; /* Prevent overflow from animations */
-}
+/* Import Google Fonts for a professional look (optional, add to your HTML or CSS) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-/* Subtle texture overlay */
-.container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Cpath fill="%23F0E7D8" d="M0 0h100v100H0z" opacity="0.1"/%3E%3C/svg%3E') repeat;
-  opacity: 0.2;
-  z-index: 1;
+.container {
+  font-family: 'Roboto', Arial, sans-serif; /* Professional, clean font */
+  max-width: 1200px;
+  height: 97vh;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f0e7; /* Warm, coffee-inspired beige background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .header {
-  background: linear-gradient(45deg, #D2691E, #E67E22);
-  color: white;
-  width: 90%;
-  max-width: 600px;
   text-align: center;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-  margin-bottom: 40px;
-  position: relative;
-  z-index: 2;
-  animation: fadeInUp 1s ease-out;
+  padding: 40px 0;
+  color: #4a2c2c; /* Deep brown for a coffee vibe */
 }
 
 .header h1 {
-  font-family: 'Lora, serif';
-  font-size: 32px;
-  font-weight: 700;
-  margin: 0 0 10px 0;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  font-weight: 700; /* Bold */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #8b4513; /* Rich coffee brown for the title */
 }
 
-.tagline {
-  font-family: 'Merriweather, serif';
-  font-size: 16px;
+.header .tagline {
+  font-size: 1.2em;
+  color: #7a4d3a; /* Rich brown for tagline */
   font-style: italic;
-  color: #F5F5F5;
-  margin: 0;
-  opacity: 0.9;
-}
-
-.restaurant-image {
-  margin-top: 40px;
-  width: 90%;
-  max-width: 800px;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
-  animation: fadeIn 1.5s ease-out;
-}
-
-.restaurant-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  transition: transform 0.3s ease-in-out;
-}
-
-.restaurant-image:hover img {
-  transform: scale(1.05); /* Slight zoom on hover for interactivity */
+  font-weight: 400;
 }
 
 .menu-button {
-  margin-top: 40px;
-  background: linear-gradient(45deg, #A52A2A, #8B0000);
-  color: white;
-  padding: 15px 40px;
-  border-radius: 30px;
-  font-size: 18px;
-  font-weight: 600;
-  font-family: 'Lora, serif';
+  display: block;
+  margin: 30px auto;
+  padding: 12px 30px;
+  font-size: 1.1em;
+  background-color: #8b4513; /* Rich coffee brown for the button */
+  color: #ffffff; /* White text for contrast */
   border: none;
+  border-radius: 25px; /* Rounded corners for a modern look */
   cursor: pointer;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
-  min-width: 200px;
-  position: relative;
-  z-index: 2;
-  animation: bounceIn 1.2s ease-out;
+  font-family: 'Roboto', Arial, sans-serif; /* Match the container font */
+  font-weight: 700; /* Bold for emphasis */
+  text-transform: uppercase; /* Uppercase for consistency with title */
+  letter-spacing: 1px; /* Slight spacing for elegance */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 8px rgba(139, 69, 19, 0.3); /* Subtle shadow for depth */
 }
 
 .menu-button:hover {
-  background: linear-gradient(45deg, #8B0000, #700000);
-  transform: translateY(-2px);
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+  background-color: #6f3a0d; /* Darker brown on hover */
+  transform: translateY(-2px); /* Lift effect on hover */
+  box-shadow: 0 6px 12px rgba(139, 69, 19, 0.4); /* Enhanced shadow on hover */
 }
 
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.menu-button:active {
+  transform: translateY(0); /* Return to original position on click */
+  box-shadow: 0 2px 4px rgba(139, 69, 19, 0.2); /* Reduced shadow on click */
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.cafe-image {
+  margin-top: 30px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes bounceIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+.cafe-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
-/* Responsive adjustments for smaller screens */
+/* Responsive design */
 @media (max-width: 768px) {
-  .header {
-    width: 80%;
-    padding: 25px;
-    margin-bottom: 30px;
-  }
-
   .header h1 {
-    font-size: 28px;
+    font-size: 2em;
   }
 
-  .tagline {
-    font-size: 14px;
-  }
-
-  .restaurant-image {
-    width: 85%;
-    margin-top: 30px;
+  .header .tagline {
+    font-size: 1em;
   }
 
   .menu-button {
-    padding: 12px 35px;
-    font-size: 16px;
-    min-width: 180px;
-  }
-}
-
-@media (max-width: 480px) {
-  .header {
-    width: 90%;
-    padding: 20px;
-    margin-bottom: 25px;
+    padding: 10px 20px;
+    font-size: 1em;
   }
 
-  .header h1 {
-    font-size: 24px;
-  }
-
-  .tagline {
-    font-size: 12px;
-  }
-
-  .restaurant-image {
-    width: 90%;
-    margin-top: 20px;
-  }
-
-  .menu-button {
-    padding: 10px 30px;
-    font-size: 14px;
-    min-width: 150px;
-    margin-top: 25px;
+  .container {
+    padding: 10px;
   }
 }
